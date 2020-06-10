@@ -1,4 +1,5 @@
 const mode = 'development';
+const enabledSourceMap = (mode === 'development');
 
 const path = require('path');
 const outputPath = path.resolve(__dirname, 'dist');
@@ -14,14 +15,26 @@ module.exports = {
     path: outputPath
   },
 
+  devtool: enabledSourceMap ? 'source-map' : false,
+
   module: {
     rules: [
       {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader'
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: enabledSourceMap
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: enabledSourceMap
+            }
+          }
         ]
       }
     ]
