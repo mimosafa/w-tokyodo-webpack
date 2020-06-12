@@ -3,8 +3,11 @@ const $gbtn = $header.find('.header_gnav_btn a');
 const $brands = $header.find('.header_gnav_brand');
 const $gmenu = $header.find('.header_gnav_menu');
 const $others = $header.find('.header_gnav_other');
+const $overlay = $('.header_overlay');
 
 const media = require('@wstd/media');
+
+const fadeSpeed = 350;
 
 const init = () => {
   $gbtn.removeClass('active');
@@ -17,19 +20,25 @@ const init = () => {
   else if (media.isDesktop()) {
     $others.show();
   }
+
+  $overlay.hide();
 };
 
 $gbtn.on('click', (e) => {
   e.preventDefault();
 
   $gbtn.toggleClass('active');
-  $brands.slideToggle(350);
-  $gmenu.slideToggle(350);
+  $brands.slideToggle(fadeSpeed);
+  $gmenu.slideToggle(fadeSpeed);
 
   if (media.isPhone()) {
-    $others.slideToggle(350);
+    $others.slideToggle(fadeSpeed);
   }
+
+  $overlay.fadeToggle(fadeSpeed);
 });
+
+// $overlay.on('click', init);
 
 module.exports = {
   init
