@@ -101,28 +101,11 @@ a {
   display: inline-block;
   color: #333;
   text-decoration: none;
-  transition: 0.2s ease-out;
+  transition: .2s ease-out;
 
   @include desktop {
     &:hover {
-      opacity: 0.6;
+      opacity: .6;
     }
-  }
-}
-
-// Basic structure
-#header,
-#contents,
-#footer {
-  @include desktop {
-    min-width: 1080px;
-  }
-}
-#contents {
-  @include phone {
-    padding: 48px 15px 55px 15px;
-  }
-  @include desktop {
-    padding: 90px 40px 110px 40px;
   }
 }

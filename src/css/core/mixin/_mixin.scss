@@ -1,11 +1,66 @@
 // Media queries
+// - Phone
 @mixin phone {
   @media (max-width: 896px) {
     @content;
   }
 }
+// - Desktop
 @mixin desktop {
   @media (min-width: 897px) {
     @content;
+  }
+}
+
+// Kick out text
+@mixin kick-out-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+// Flip image for hover link
+//
+// Peseudo elements (:before/:after) should be
+// set background-image
+@mixin flip-image-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative; // should be over witten
+
+  @include kick-out-text;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    transition: .2s ease-out;
+  }
+
+  &,
+  &:before,
+  &.active:after {
+    opacity: 1;
+  }
+  &:after ,
+  &.active:before {
+    opacity: 0;
+  }
+
+  @include desktop {
+    &:hover {
+      &:before {
+        opacity: 0;
+      }
+      &:after {
+        opacity: 1;
+      }
+    }
   }
 }

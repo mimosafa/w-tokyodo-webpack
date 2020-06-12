@@ -1,0 +1,430 @@
+#footer {
+  background: url("./img/footer_bg.jpg") no-repeat 50% 0;
+  background-size: cover;
+
+  //
+  // Page to top
+  //
+  .footer_pagetop {
+    // display: none;
+    position: fixed;
+    z-index: 19999;
+
+    @include phone {
+      right: 10px;
+      bottom: 15px;
+    }
+    @include desktop {
+      right: 20px;
+      bottom: 20px;
+    }
+
+    a {
+      display: block;
+      border: 1px solid #fff;
+      background-color: rgba(0, 0, 0, .8);
+      background-image: url("./img/footer_pagetop.png");
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+
+      @include kick-out-text;
+
+      @include phone {
+        background-size: 10px auto;
+        width: 25px;
+        height: 25px;
+      }
+      @include desktop {
+        background-size: 15px auto;
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+
+  .footer_inner {
+    margin: 0 auto;
+    color: #666;
+
+    @include phone {
+      width: 100%;
+      padding-bottom: 25px;
+    }
+    @include desktop {
+      width: 1000px;
+      padding-bottom: 55px;
+    }
+
+    //
+    // Breadcrumbs
+    //
+    .footer_breadcrumbs {
+      letter-spacing: -.4em;
+      border-bottom: 1px solid #b2b2b2;
+      line-height: 1;
+
+      @include phone {
+        padding: 12px 0;
+        margin: 0 15px;
+      }
+      @include desktop {
+        padding: 25px 0;
+      }
+
+      & > li {
+        display: inline-block;
+        vertical-align: top;
+        letter-spacing: .02em;
+        line-height: 1.6;
+
+        @include phone {
+          margin-left: 8px;
+          font-size: 10px;
+        }
+        @include desktop {
+          margin-left: 20px;
+          font-size: 12px;
+        }
+
+        &:nth-of-type(1) {
+          margin-left: 0;
+        }
+
+        &:before {
+          content: "";
+          background: url("./img/footer_breadcrumbs_arrow.png") no-repeat 0 50%;
+          display: inline-block;
+
+          @include phone {
+            background-size: 4px auto;
+            width: 4px;
+            height: 6px;
+            padding-left: 8px;
+          }
+          @include desktop {
+            background-size: 6px auto;
+            width: 6px;
+            height: 10px;
+            padding-left: 17px;
+          }
+        }
+        &:first-child:before {
+          display: none;
+        }
+
+        & > a {
+          color: #666;
+        }
+
+        &:nth-of-type(1) > a {
+          background: url("./img/footer_breadcrumbs_home.png") no-repeat 0 50%;
+          text-indent: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+
+          @include phone {
+            background-size: 13px auto;
+            width: 13px;
+            height: 10px;
+          }
+          @include desktop {
+            background-size: 18px auto;
+            width: 18px;
+            height: 14px;
+          }
+        }
+      }
+    }
+
+    //
+    // Footer sitemap
+    //
+    .footer_sitemap {
+      @include phone {
+        margin-top: 25px;
+      }
+      @include desktop {
+        margin-top: 50px;
+      }
+
+      .footer_sitemap_tokyodo {
+        @include phone {
+          float: none;
+          width: 100%;
+          padding: 0 15px;
+        }
+        @include desktop {
+          float: left;
+          width: 320px;
+        }
+
+        & > dt {
+          display: block;
+          line-height: 1;
+
+          @include phone {
+            text-align: center;
+          }
+
+          & > a {
+            background-image: url("./img/footer_sitemap_tokyodo_ttl.png");
+            background-repeat: no-repeat;
+            background-position: 0 0;
+
+            @include kick-out-text;
+
+            @include phone {
+              background-size: 190px auto;
+              display: inline-block;
+              width: 190px;
+              height: 17px;
+            }
+            @include desktop {
+              background-size: 290px auto;
+              display: block;
+              width: 290px;
+              height: 26px;
+            }
+
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+
+        & > dd {
+          margin-top: 15px;
+          font-weight: 500;
+
+          @include phone {
+            font-size: 11px;
+            text-align: center;
+          }
+          @include desktop {
+            font-size: 13px;
+          }
+
+          & > p {
+            margin-bottom: 5px;
+          }
+
+          & > .footer_sitemap_tokyodo_links {
+            list-style: none;
+            letter-spacing: -.4em;
+
+            & > li {
+              display: inline-block;
+              vertical-align: top;
+              letter-spacing: .02em;
+
+              &:after {
+                content: "│";
+                display: inline-block;
+                margin: 0 10px;
+
+                @include phone {
+                  background-size: 13px auto;
+                  width: 13px;
+                  height: 13px;
+                  margin-top: -6.5px;
+                }
+              }
+
+              &:nth-last-child(1):after {
+                display: none;
+              }
+
+              a {
+                padding-left: 20px;
+                position: relative;
+                color: #666;
+
+                &:after {
+                  content: "";
+                  background-repeat: no-repeat;
+                  background-position: 50% 50%;
+                  background-size: 18px auto;
+                  display: block;
+                  width: 18px;
+                  height: 18px;
+                  margin-top: -9px;
+                  position: absolute;
+                  top: 50%;
+                  left: 0;
+                }
+              }
+
+              &.footer_sitemap_tokyodo_links_tel > a:after {
+                background-image: url("./img/footer_sitemap_tokyodo_links_tel.png");
+              }
+              &.footer_sitemap_tokyodo_links_mail > a:after {
+                background-image: url("./img/footer_sitemap_tokyodo_links_mail.png");
+              }
+            }
+          }
+        }
+      }
+
+      .footer_sitemap_brand {
+        letter-spacing: -.4em;
+
+        @include phone {
+          margin-top: 10px;
+          text-align: center;
+        }
+        @include desktop {
+          float: right;
+          margin-left: -60px;
+        }
+
+        & > li {
+          display: inline-block;
+          position: relative;
+          letter-spacing: .02em;
+          vertical-align: top;
+
+          @include phone {
+            height: 45px;
+            margin: 7px;
+            width: 45px;
+          }
+          @include desktop {
+            height: 80px;
+            margin-left: 60px;
+
+            &.footer_sitemap_brand_direct {
+              width: 120px;
+            }
+            &.footer_sitemap_brand_neostall {
+              width: 117px;
+            }
+            &.footer_sitemap_brand_neoponte {
+              width: 105px;
+            }
+            &.footer_sitemap_brand_sharyobu {
+              width: 69px;
+            }
+          }
+
+          & > a {
+            @include flip-image-link;
+
+            @include phone {
+              border: 1px solid #666;
+              border-radius: 45px;
+
+              &:before,
+              &:after {
+                background-image: url("./img/footer_sitemap_brand_sp.png");
+                background-size: auto 45px;
+              }
+            }
+            @include desktop {
+              &:before,
+              &:after {
+                background-image: url("./img/footer_sitemap_brand.png");
+                background-size: auto 160px;
+              }
+            }
+          }
+
+          // Direct
+          &.footer_sitemap_brand_direct > a {
+            @include phone {
+              &:before {
+                background-position: 0 0;
+              }
+            }
+            @include desktop {
+              &:before {
+                background-position: 0 0;
+              }
+              &:after {
+                background-position: 0 -80px;
+              }
+            }
+          }
+          // Neostall
+          &.footer_sitemap_brand_neostall > a {
+            @include phone {
+              &:before {
+                background-position: -45px 0;
+              }
+            }
+            @include desktop {
+              &:before {
+                background-position: -120px 0;
+              }
+              &:after {
+                background-position: -120px -80px;
+              }
+            }
+          }
+          // Neoponte
+          &.footer_sitemap_brand_neoponte > a {
+            @include phone {
+              &:before {
+                background-position: -90px 0;
+              }
+            }
+            @include desktop {
+              &:before {
+                background-position: -237px 0;
+              }
+              &:after {
+                background-position: -237px -80px;
+              }
+            }
+          }
+          // Sharyobu
+          &.footer_sitemap_brand_sharyobu > a {
+            @include phone {
+              &:before {
+                background-position: -135px 0;
+              }
+            }
+            @include desktop {
+              &:before {
+                background-position: -342px 0;
+              }
+              &:after {
+                background-position: -342px -80px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //
+  // Credit
+  //
+  .footer_credit {
+    background-color: #000;
+    text-align: center;
+
+    @include phone {
+      padding: 15px 0;
+    }
+    @include desktop {
+      padding: 20px 0;
+    }
+
+    & > p {
+      color: #999;
+      line-height: 1.4;
+
+      @include phone {
+        font-size: 10px;
+      }
+      @include desktop {
+        font-size: 11px;
+
+        & > br {
+          display: none;
+        }
+      }
+    }
+  }
+}

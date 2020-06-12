@@ -1,0 +1,21 @@
+// Basic structure
+#header,
+#contents,
+#footer {
+  width: 100%;
+
+  @include desktop {
+    min-width: 1080px;
+  }
+}
+#contents {
+  @include phone {
+    padding: 48px 15px 55px;
+  }
+  @include desktop {
+    padding: 90px 40px 110px;
+  }
+}
+
+@import "header/header";
+@import "footer/footer";
