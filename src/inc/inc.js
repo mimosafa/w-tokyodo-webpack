@@ -1,5 +1,6 @@
 const media = require('@wstd/media');
 const header = require('./header/header');
+require('./footer/footer');
 
 const init = () => {
   media.init();
