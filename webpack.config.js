@@ -18,6 +18,12 @@ module.exports = {
 
   devtool: enabledSourceMap ? 'source-map' : false,
 
+  resolve: {
+    alias: {
+      '@wstd': path.resolve(__dirname, 'src/js/modules')
+    }
+  },
+
   module: {
     rules: [
       {
