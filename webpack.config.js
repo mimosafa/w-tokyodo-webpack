@@ -26,6 +26,13 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
+              sourceMap: enabledSourceMap,
+              url: true,
+            }
+          },
+          {
+            loader: 'resolve-url-loader',
+            options: {
               sourceMap: enabledSourceMap
             }
           },
@@ -33,6 +40,18 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: enabledSourceMap
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(png|jpe?g)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 1024 * 10,
+              name: 'img/[name].[ext]'
             }
           }
         ]
