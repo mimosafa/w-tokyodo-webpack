@@ -3,6 +3,7 @@ const enabledSourceMap = (mode === 'development');
 
 const path = require('path');
 const outputPath = path.resolve(__dirname, 'dist');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
@@ -62,6 +63,10 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'style.css'
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
     })
   ],
 
