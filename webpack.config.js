@@ -3,6 +3,7 @@ const enabledSourceMap = (mode === 'development');
 
 const path = require('path');
 const outputPath = path.resolve(__dirname, 'dist');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
@@ -16,6 +17,12 @@ module.exports = {
   },
 
   devtool: enabledSourceMap ? 'source-map' : false,
+
+  resolve: {
+    alias: {
+      '@wstd': path.resolve(__dirname, 'src/js/modules')
+    }
+  },
 
   module: {
     rules: [
@@ -45,7 +52,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpe?g)$/,
+        test: /\.(png|jpe?g|gif)$/,
         use: [
           {
             loader: 'url-loader',
@@ -62,6 +69,10 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'style.css'
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
     })
   ],
 
