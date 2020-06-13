@@ -1,10 +1,12 @@
 const media = require('@wstd/media');
 const header = require('./header/header');
+const loader = require('./loader/loader');
 require('./footer/footer');
 
 const init = () => {
   media.init();
   header.init();
+  loader.init();
 };
 
 window.addEventListener('load', init);
