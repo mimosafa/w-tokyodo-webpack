@@ -67,3 +67,14 @@
     }
   }
 }
+
+#contents.simulator.first {
+  .simulator_controller {
+    display: none;
+  }
+}
+#contents.simulator.last {
+  .simulator_controller .simulator_next {
+    display: none;
+  }
+}
