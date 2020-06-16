@@ -17,6 +17,19 @@
   }
 }
 
+/*
+ * Footer fixed bottom
+ * @see https://qiita.com/d0ne1s/items/5c629bc543e70ed2bf98
+ */
+body {
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+}
+#contents {
+  flex: 1;
+}
+
 @import "header/header";
 @import "loader/loader";
 @import "footer/footer";

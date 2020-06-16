@@ -1,0 +1,64 @@
+.cnt_ttl {
+  position: relative;
+  text-align: center;
+
+  @include phone {
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+  }
+  @include desktop {
+    padding-bottom: 20px;
+    margin-bottom: 35px;
+  }
+
+  &:after {
+    content: "";
+    background-color: #333;
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+
+    @include phone {
+      width: 40px;
+      height: 2px;
+      margin-left: -20px;
+    }
+    @include desktop {
+      width: 60px;
+      height: 2px;
+      margin-left: -30px;
+    }
+  }
+}
+
+.cnt_ttl02 {
+  background-color: #f2f2f2;
+  position: relative;
+
+  @include phone {
+    padding: 10px 10px 10px 15px;
+    margin-bottom: 20px;
+  }
+  @include desktop {
+    padding: 12px 20px 12px 30px;
+    margin-bottom: 40px;
+  }
+
+  &:after {
+    content: "";
+    background-color: #333;
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @include phone {
+      width: 2px;
+    }
+    @include desktop {
+      width: 3px;
+    }
+  }
+}
