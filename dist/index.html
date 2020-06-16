@@ -58,27 +58,130 @@
     <!-- //END #loader -->
 
     <!-- START #contents -->
-    <article id="contents">
-      <section id="mv">
-        <h2 class="mv_ttl">
-          <span>ご利用にあたって</span>
-          <span>Terms</span>
-        </h2>
-      </section>
+    <article id="contents" class="simulator">
 
-      <section id="content">
-        <div class="cnt_block">
-          <h3 class="cnt_ttl">プライバシーポリシー</h3>
-          <p class="mgb40">株式会社ワークストア・トウキョウドゥ（以下「当社」といいます）は、個人情報の保護に関する法令を遵守し、当社事業のご利用者様より提供いただいた個人情報について機密性を保持するよう努めます。なお、本プライバシーポリシーの内容は、法令の制定・改正、当社サービス内容の変更等により都度見直し、予告なく変更する場合があります。ご利用の際には本ページに掲載されております最新の利用規約をご参照ください。</p>
-          <h4 class="mgb10">個人情報の利用について</h4>
-          <p class="mgb20">当社がご利用者様の個人情報を収集させていただく際には目的を明示した上で、必要な範囲で収集させていただきます。また当社事業活動に当たり、事業内容及び規模を考慮し、適切な範囲内でのみ利用・提供いたします。</p>
-          <h4 class="mgb10">個人情報の開示</h4>
-          <p class="mgb20">当社は、個人情報保護法等の法令に定めのある場合、利用目的を果たすために必要な場合、またご利用者様及び公衆の生命・健康・財産などに重大な損害が発生することを防止するために必要な場合を除き、本人の同意なく個人情報を第三者に開示することはありません。</p>
-          <h4 class="mgb10">個人情報の管理について</h4>
-          <p class="mgb20">当社は、取り扱う個人情報の漏洩、滅失またはき損の防止など、個人情報の安全管理のために必要かつ適切な措置を講じます。</p>
-          <p>平成24年3月2日<br>株式会社ワークストア・トウキョウドゥ<br>代表取締役 烏川清治</p>
+      <div class="simulator_controller">
+        <a href="#" class="simulator_prev">Prev</a>
+        <a href="#" class="simulator_next">Next</a>
+      </div>
+
+      <div class="simulator_wrapper">
+
+        <div class="simulator_page">
+          <div>
+            <h1 class="cnt_ttl02">
+              キッチンカーレンタル
+              <br>
+              簡単見積もり
+              <br>
+              シュミレーター
+            </h1>
+            <button id="simulator_start">START</button>
+          </div>
         </div>
-      </section>
+
+        <div class="simulator_page question question_radio">
+          <div>
+            <p>どちらの車両を使いますか？</p>
+            <div>
+              <div>
+                <input type="radio" name="car_type" id="car_type_kei" value="kei">
+                <label for="car_type_kei">軽自動車</label>
+              </div>
+              <div>
+                <input type="radio" name="car_type" id="car_type_futsu" value="futsu">
+                <label for="car_type_futsu">普通自動車</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="simulator_page question question_radio">
+          <div>
+            <p>レンタル期間はどのくらいですか？</p>
+            <div>
+              <input type="radio" name="days" id="days_1" value="1">
+              <label for="days_1">1日</label>
+            </div>
+            <div>
+              <input type="radio" name="days" id="days_2" value="2">
+              <label for="days_2">2日</label>
+            </div>
+            <div>
+              <input type="radio" name="days" id="days_3" value="3">
+              <label for="days_3">3日</label>
+            </div>
+            <div>
+              <input type="radio" name="days" id="days_4" value="4">
+              <label for="days_4">4日</label>
+            </div>
+            <div>
+              <input type="radio" name="days" id="days_5" value="5">
+              <label for="days_5">5日</label>
+            </div>
+            <div>
+              <input type="radio" name="days" id="days_6" value="6">
+              <label for="days_6">6日</label>
+            </div>
+            <div>
+              <input type="radio" name="days" id="days_7" value="7">
+              <label for="days_7">7日</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="simulator_page question question_radio">
+          <div>
+            <p>搬入・搬出はどうしますか？</p>
+            <div>
+              <input type="radio" name="carry-in-out" id="carry_by_myself" value="myself">
+              <label for="carry_by_myself">ご自身で弊社まで取りに来て、ご自身で返却する</label>
+            </div>
+            <div>
+              <input type="radio" name="carry-in-out" id="request_driver" value="request">
+              <label for="request_driver">
+                弊社担当(ドライバー)に搬入・搬出を依頼する
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="simulator_page question">
+          <div>
+            <p>追加で欲しい設備を選んでください。</p>
+            <div>
+              <input type="checkbox" name="additional-items" id="item_generator" value="generator">
+              <label for="item_generator">発電機</label>
+            </div>
+            <div>
+              <input type="checkbox" name="additional-items" id="item_teppan" value="teppan">
+              <label for="item_teppan">鉄板</label>
+            </div>
+            <div>
+              <input type="checkbox" name="additional-items" id="item_refrigerator" value="refrigerator">
+              <label for="item_refrigerator">冷蔵庫</label>
+            </div>
+            <div>
+              <input type="checkbox" name="additional-items" id="item_camera" value="camera">
+              <label for="item_camera">防犯カメラ</label>
+            </div>
+            <div>
+              <input type="checkbox" name="additional-items" id="item_cash_register" value="cash_register">
+              <label for="item_cash_register">レジ</label>
+            </div>
+            <div>
+              <input type="checkbox" name="additional-items" id="item_sheet" value="sheet">
+              <label for="item_sheet">養生シート</label>
+            </div>
+            <div>
+              <input type="checkbox" name="additional-items" id="item_fire_extinguisher" value="fire_extinguisher">
+              <label for="item_fire_extinguisher">消火器</label>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.simulatoe_wrapper -->
+
     </article>
     <!-- //END #contents -->
 
