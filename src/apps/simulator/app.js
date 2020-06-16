@@ -23,11 +23,12 @@ const init = () => {
   status.step = 0;
   status.length = contents.length;
   status.amount = 0;
-  root.classList.add('first');
+  answers.prices = {};
 
   status = new Proxy(status, {
     set(target, prop, val) {
       if (prop === 'step') {
+        // Simulator progress
         if ((val < 0) || (val > (target.length - 1))) {
           return false;
         }
@@ -42,46 +43,46 @@ const init = () => {
         } else {
           root.classList.remove('last');
         }
-        if (target[prop] !== 0) {
-          controller.style.display = 'block';
-        }
         wrap.style.left = `-${w * target[prop]}px`;
-        console.log(target.step, target.length);
+        return true;
       }
-      else if (prop === 'amount') {
+      if (prop === 'amount') {
+        // Total amount
         for (const am of amounts) {
           am.textContent = val;
         }
         target[prop] = val;
+        return true;
       }
-      return true;
+      return false;
     }
   });
 
   answers = new Proxy(answers, {
     set(target, prop, val) {
+      const prices = target.prices;
       if (prop === 'car_type') {
-        target.carUnit = this.carUnitPrice(val);
+        prices.carUnit = this.carUnitPrice(val);
       }
       else if (prop === 'days') {
-        target.days = val;
+        prices.days = val;
       }
       else if (prop === 'carry-in-out') {
-        target.carryInOut = this.carryInOutPrice(val);
+        prices.carryInOut = this.carryInOutPrice(val);
       }
       else if (prop === 'additional-items') {
-        target.additionalItems = 10000 * val.length;
+        prices.additionalItems = 10000 * val.length;
       }
 
       target[prop] = val;
-      if ((target.carUnit > 0) && (target.days > 0)) {
-        status.amount = target.carUnit * target.days;
+      if ((prices.carUnit > 0) && (prices.days > 0)) {
+        status.amount = prices.carUnit * prices.days;
       }
-      if (target.carryInOut > 0) {
-        status.amount = status.amount + target.carryInOut;
+      if (prices.carryInOut > 0) {
+        status.amount = status.amount + prices.carryInOut;
       }
-      if (target.additionalItems > 0) {
-        status.amount = status.amount + target.additionalItems
+      if (prices.additionalItems > 0) {
+        status.amount = status.amount + prices.additionalItems
       }
       return true;
     },
@@ -122,11 +123,14 @@ const initStyles = () => {
   wrap.style.left = `-${w * status.step}px`;
 };
 
+// Window load event
 window.addEventListener('load', () => {
+  root.classList.add('first');
   init();
   initStyles();
 });
 
+// Window resize event
 let resizeTimer = 0;
 window.addEventListener('resize', () => {
   if (resizeTimer) {
