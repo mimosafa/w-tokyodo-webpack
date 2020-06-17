@@ -1,11 +1,11 @@
 // Elements
 const root = document.querySelector('#contents.simulator');
-const wrap = root.querySelector(':scope > .simulator_wrapper');
-const contents = wrap.querySelectorAll(':scope > .simulator_page');
-const controller = root.querySelector(':scope .simulator_controller');
+const wrap = root.querySelector('.simulator_wrapper');
+const contents = wrap.querySelectorAll('.simulator_page');
+const controller = root.querySelector('.simulator_controller');
 const prev = controller.querySelector('.simulator_prev');
 const next = controller.querySelector('.simulator_next');
-const amounts = root.querySelectorAll(':scope .simulator_amount > .simulator_amount_yen');
+const amounts = root.querySelectorAll('.simulator_amount > .simulator_amount_yen');
 
 const questions = wrap.querySelectorAll('input');
 
@@ -61,6 +61,8 @@ const init = () => {
   answers = new Proxy(answers, {
     set(target, prop, val) {
       const prices = target.prices;
+      let dayCost = 0;
+
       if (prop === 'car_type') {
         prices.carUnit = this.carUnitPrice(val);
       }
@@ -75,14 +77,19 @@ const init = () => {
       }
 
       target[prop] = val;
-      if ((prices.carUnit > 0) && (prices.days > 0)) {
-        status.amount = prices.carUnit * prices.days;
+
+      if (prices.carUnit > 0) {
+        dayCost = dayCost + prices.carUnit;
+      }
+      if (prices.additionalItems > 0) {
+        dayCost = dayCost + prices.additionalItems;
+      }
+
+      if (dayCost > 0) {
+        status.amount = dayCost * prices.days;
       }
       if (prices.carryInOut > 0) {
         status.amount = status.amount + prices.carryInOut;
-      }
-      if (prices.additionalItems > 0) {
-        status.amount = status.amount + prices.additionalItems
       }
       return true;
     },
