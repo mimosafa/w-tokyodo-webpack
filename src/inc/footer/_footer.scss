@@ -1,6 +1,8 @@
 #footer {
-  background: url("./img/footer_bg.jpg") no-repeat 50% 0;
   background-size: cover;
+  background-image: url("./img/footer_bg.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
 
   //
   // Page to top
