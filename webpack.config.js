@@ -1,4 +1,4 @@
-const mode = 'development';
+const mode = (process.env.NODE_ENV === 'production') ? 'production' : 'development';
 const enabledSourceMap = (mode === 'development');
 
 const path = require('path');
@@ -46,7 +46,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: enabledSourceMap
+              sourceMap: true
             }
           }
         ]
