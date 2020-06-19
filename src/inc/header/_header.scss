@@ -414,11 +414,11 @@
                 opacity: 1;
               }
 
-              @include kick-out-text;
-
               background-image: url("./img/header_gnav_other.png");
               background-repeat: no-repeat;
               background-size: auto 35px;
+
+              @include kick-out-text;
             }
 
             &.header_gnav_other_facebook > a {
