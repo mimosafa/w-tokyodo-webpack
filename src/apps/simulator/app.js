@@ -184,7 +184,9 @@ for (let question of questions) {
     }
     answers[name] = value;
     if (type === 'radio') {
-      status.step++;
+      setTimeout(() => {
+        status.step++;
+      }, 400);
     }
   });
 }
